@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 [System.Serializable]
 public class Speed {
-	public float minSpeed, maxSpeed;
+	public float minSpeed = 5f, maxSpeed =10f;
 }
 
 [System.Serializable]
@@ -16,9 +18,10 @@ public class EnemyController : MonoBehaviour {
 	// PUBLIC INSTANCE VARIABLES
 	public Speed speed;
 	public Boundary boundary;
+    public GameController gameController;
 
-	// PRIVATE INSTANCE VARIABLES
-	private float _CurrentSpeed;
+    // PRIVATE INSTANCE VARIABLES
+    private float _CurrentSpeed;
 	private float _CurrentDrift;
 
 	// Use this for initialization
@@ -35,6 +38,7 @@ public class EnemyController : MonoBehaviour {
 		// Check bottom boundary
 		if (currentPosition.y <= boundary.yMin) {
 			this._Reset();
+            this.gameController.Scorevalue += 10;
 		}
 	}
 

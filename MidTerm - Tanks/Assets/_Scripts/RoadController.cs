@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RoadController : MonoBehaviour {
 	// PUBLIC INSTANCE VARIABLES
-	public float speed;
+	public float speed = 5f;
 
 	// Use this for initialization
 	void Start () {
