@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour {
     public EnemyController tank;
     public Text LiveLabel;
     public Text ScoreLabel;
+    public Text GameOverLabel;
+    public PlayerController player;
+    public EnemyController enemy;
     //public GameObject tank;
 
     // PRIVATE INSTANCE VARIABLES
@@ -69,17 +72,18 @@ public class GameController : MonoBehaviour {
 
         this.Scorevalue = 0;
         this.Livesvalue = 5;
+        this.GameOverLabel.enabled = false;
     }
 
     private void _endGame()
     {
         //this.HighScoreLabel.text = "HighScore:" + this._scoreValue;
-       // this.GameOverLabel.enabled = true;
+       this.GameOverLabel.enabled = true;
         //this.HighScoreLabel.enabled = true;
         this.LiveLabel.enabled = false;
         this.ScoreLabel.enabled = false;
-        //this.buttercup.gameObject.SetActive(false);
-        //this.star.gameObject.SetActive(false);
+        this.player.gameObject.SetActive(false);
+        this.enemy.gameObject.SetActive(false);
         //this.RestartButton.gameObject.SetActive(true);
         //this._gameOverSound.Play();
     }
